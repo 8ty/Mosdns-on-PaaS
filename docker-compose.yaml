@@ -1,5 +1,23 @@
 services:
   mos-dns:
-    build: .
+    
     ports:
       - "8080:8080"
+
+
+version: '3.3'
+
+services:
+  mosdns:
+    image: irinesistiana/mosdns
+    container_name: mosdns
+    build: .
+    environment:
+      - MOSDNS_DNS_IP=${MOSDNS_DNS_IP}
+      - MOSDNS_DNS_TTL=${MOSDNS_DNS_TTL}
+    ports:
+      - "53:53"
+      - "8080:8080"
+    networks:
+      default:
+        ipv4_address: ${MOSDNS_IP}
