@@ -3,7 +3,7 @@ version: '3.3'
 services:
   mosdns-dns:
     image: irinesistiana/mosdns
-    container_name: mosdns
+    container_name: mosdns-dns
     build: .
     environment:
       - MOSDNS_DNS_IP=${MOSDNS_DNS_IP}
